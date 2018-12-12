@@ -20,7 +20,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return response()->json($users);
+        return response($users);
     }
 
     /**
@@ -56,7 +56,7 @@ class UserController extends Controller
             $user->email = $request->email;
             $user->password = $request->password;
             $user->save();
-            return response()->json("Successfully created user!");
+            return response("Successfully created user!");
         }
     }
 
@@ -70,9 +70,9 @@ class UserController extends Controller
     {
         $user = User::find($id);
         if($user){
-            return response()->json($user);
+            return response($user);
         }else{
-            return response()->json("There no such user!");
+            return response("There is no such user!");
         }
     }
 
@@ -111,7 +111,7 @@ class UserController extends Controller
             $user->email = $request->email;
             $user->password = $request->password;
             $user->save();
-            return response()->json("Successfully updated  user!");
+            return response("Successfully updated  user!");
         }
     }
 
@@ -126,9 +126,9 @@ class UserController extends Controller
         $user = User::find($id);
         if($user){
             $user->delete();
-            return response()->json("Successfully delete  user!");
+            return response("Successfully delete  user!");
         }else{
-            return response()->json("There no such user!");
+            return response("There is no such user!");
         }
     }
 }
